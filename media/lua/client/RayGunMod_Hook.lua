@@ -96,8 +96,81 @@ function ISRackFirearm:removeBullet()
     end
     return hook_removeBullet(self)
 end
+--[[
+function RayGunMod.isAimingAtSq()
+    local sq = RayGunMod.getPointer()
+    local pl = getPlayer()
+    if not pl or not sq then return false end
+
+    local dx = sq:getX() - pl:getX()
+    local dy = sq:getY() - pl:getY()
+    if dx == 0 and dy == 0 then return true end
+
+    local desiredAngle = math.atan2(dy, dx)
+    local facingAngle = pl:getAngleX() and math.atan2(pl:getAngleY(), pl:getAngleX())
+
+    if not facingAngle then return false end
+
+    local diff = math.abs(desiredAngle - facingAngle)
+    if diff > math.pi then
+        diff = math.abs(diff - 2 * math.pi)
+    end
+
+    return diff < 0.4
+end
+function RayGunMod.getDirectionFromVector(dx, dy)
+    local angle = math.atan2(dy, dx)
+    local index = math.floor((angle / math.pi * 4) + 4.5) % 8
+    return index
+end
+]]
+function RayGunMod.isAimingAtSquare()
+    local pl = getPlayer()
+    local sq = RayGunMod.getPointer()
+    if not pl or not sq then return false end
+
+    local dirNormalize = {
+        N = "N", NNE = "N", NE = "NE", ENE = "NE",
+        E = "E", ESE = "SE", SE = "SE", SSE = "S",
+        S = "S", SSW = "S", SW = "SW", WSW = "SW",
+        W = "W", WNW = "W", NW = "NW", NNW = "N",
+    }
+
+    local dirToNum = {
+        W = 0, NW = 1, N = 2, NE = 3, E = 4, SE = 5, S = 6, SW = 7,
+    }
+
+    local function getDirectionToSquare(pl, sq)
+        local dx = sq:getX() - pl:getX()
+        local dy = sq:getY() - pl:getY()
+        if dx == 0 and dy == 0 then
+            local normDir = dirNormalize[pl:getDir()] or "W"
+            return dirToNum[normDir]
+        end
+        local angle = math.atan2(dy, dx)
+        return math.floor((angle / math.pi * 4) + 4.5) % 8
+    end
+
+    local playerDirNorm = dirNormalize[pl:getDir()] or "W"
+    local playerDirNum = dirToNum[playerDirNorm]
+    local targetDirNum = getDirectionToSquare(pl, sq)
+
+    if not playerDirNum or not targetDirNum then return false end
+
+    local diff = math.abs(targetDirNum - playerDirNum)
+    diff = math.min(diff, 8 - diff)
+
+    return diff <= 1
+end
 
 
+local hook_canShoot = ISReloadWeaponAction.canShoot
+function ISReloadWeaponAction.canShoot(weapon)
+    if weapon and RayGunMod.isRayGun(weapon) then
+        if not RayGunMod.isAimingAtSquare() then return false end
+    end
+    return hook_canShoot(weapon)
+end
 
 function RayGunMod.removeBullet(pl, wpn)
     if wpn and RayGunMod.isRayGun(wpn) then
