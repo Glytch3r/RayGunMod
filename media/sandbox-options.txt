@@ -1,0 +1,35 @@
+
+VERSION = 1,
+
+
+option RayGunMod.ExplosionRadius
+{
+	type = double,	 min = 0.00,  max = 6,  default = 2,
+	page = RayGunMod, translation = RayGunMod_ExplosionRadius,
+}
+option RayGunMod.KnockDownPercent
+{
+	type = double,	 min = 0.00,  max = 100,  default = 15,
+	page = RayGunMod, translation = RayGunMod_KnockDownPercent,
+}
+option RayGunMod.ZedKnockDownPercent
+{
+	type = double,	 min = 0.00,  max = 100,  default = 15,
+	page = RayGunMod, translation = RayGunMod_ZedKnockDownPercent,
+}
+option RayGunMod.ZedDmg
+{
+	type = double,	 min = 0.00,  max = 100,  default = 15,
+	page = RayGunMod, translation = RayGunMod_ZedDmg,
+}
+
+option RayGunMod.DeathChance
+{
+	type = double,	 min = 0.00,  max = 100,  default = 2,
+	page = RayGunMod, translation = RayGunMod_DeathChance,
+}
+option RayGunMod.EffectsRange
+{
+	type = double,	 min = 0.00,  max = 100,  default = 12,
+	page = RayGunMod, translation = RayGunMod_EffectsRange,
+}

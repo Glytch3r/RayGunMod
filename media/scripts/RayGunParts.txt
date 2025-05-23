@@ -1,0 +1,72 @@
+module Base
+{
+    imports
+    {
+		Base
+	}
+
+    item Ray Gun Casing
+    {
+        Type                = Normal,
+        DisplayName         = Ray Gun Casing,
+        Icon                = Ray Gun Casing,
+        Weight              = 3.8,
+        StaticModel         = Ray Gun Casing,
+        WorldStaticModel    = Ray Gun Casing,
+    }
+    item Ray Gun Emitter
+    {
+        Type                = Normal,
+        DisplayName         = Ray Gun Emitter,
+        Icon                = Ray Gun Emitter,
+        Weight              = 0.2,
+        StaticModel         = Ray Gun Emitter,
+        WorldStaticModel    = Ray Gun Emitter,
+    }
+    item Ray Gun Grip
+    {
+        Type                = Normal,
+        DisplayName         = Ray Gun Grip,
+        Icon                = Ray Gun Grip,
+        Weight              = 2.2,
+        StaticModel         = Ray Gun Grip,
+        WorldStaticModel    = Ray Gun Grip,
+
+    }
+
+    model Ray Gun Casing
+    {
+        mesh = weapons/parts/RayGunPartA,
+        texture = weapons/firearm/Raygun_Material_BaseColor,
+
+        attachment world
+        {
+            offset = 0.038 -0.020 0.000,
+            rotate = 0.0000 0.0000 0.0000,
+        }
+    }
+
+    model Ray Gun Emitter
+    {
+        mesh = weapons/parts/RayGunPartB,
+        texture = weapons/firearm/Raygun_Material_BaseColor,
+
+        attachment world
+        {
+            offset = 0.0000 0.0630 0.0000,
+            rotate = 0.0000 0.0000 0.0000,
+        }
+    }
+
+    model Ray Gun Grip
+    {
+        mesh = weapons/parts/RayGunPartC,
+        texture = weapons/firearm/Raygun_Material_BaseColor,
+
+        attachment world
+        {
+            offset = 0.0000 0.0080 0.0000,
+            rotate = 0.0000 0.0000 0.0000,
+        }
+    }
+}

@@ -1,0 +1,129 @@
+module Base
+{
+
+    item ColdCellBattery
+    {
+        DisplayCategory     = Ammo,
+        CanStack            = FALSE,
+        Weight              = 0.2,
+        Count	            = 20,
+        Type                = Normal,
+        DisplayName         = Cold Cell Battery,
+        Icon                = ColdCellBattery,
+        StaticModel         = Cold Cell Battery,
+        WorldStaticModel    = Cold Cell Battery,
+        MetalValue          = 1,
+        /* ------   DO NOT CHANGE  ------- */
+        ColdCell            = 10,
+        Tooltip             = Charge: 10,
+
+        /* --------------------- --------  */
+    }
+
+
+	model Cold Cell Battery
+	{
+	    mesh = weapons/parts/Cold Cell Battery,
+	    texture = weapons/firearm/Cold Cell Battery,
+
+
+            attachment world
+	    {
+		    offset = 0.0000 -0.0140 0.0000,
+		    rotate = 0.0000 0.0000 0.0000,
+	    }
+
+
+	}
+
+
+    item RayGun
+    {
+
+
+        /* ------   DO NOT CHANGE  ------- */
+        isRayGun            = TRUE,
+        ColdCell            = 0,
+        Tooltip             = Charge: 0,
+        /* --------------------- --------  */
+
+
+
+
+        DisplayCategory     = Weapon,
+        Type                = Weapon,
+        SubCategory         = Firearm,
+        DisplayName         = Ray Gun,
+        Icon                = RayGun,
+        WeaponSprite        = Ray Gun,
+        Weight              = 1.5,
+
+        IsAimedFirearm      = TRUE,
+
+        Ranged              = TRUE,
+
+        AmmoType            = Base.ColdCellBattery,
+        MaxAmmo             = 2,
+
+        WeaponReloadType       = doublebarrelshotgun,
+        RackAfterShoot         = FALSE,
+        haveChamber            = FALSE,
+        InsertAllBulletsReload = FALSE,
+        JamGunChance           = 0,
+
+        SwingSound           = RayGunShoot,
+        ClickSound           = RayGunNoAmmo,
+        EquipSound           = RayGunEquip,
+        InsertAmmoStartSound = RayGunReload,
+        InsertAmmoStopSound  = RayGunReloadFinish,
+        EjectAmmoStartSound  = RayGunReload,
+        EjectAmmoStopSound   = RayGunReloadFinish,
+
+        MinDamage           = 1,
+        MaxDamage           = 1.4,
+        StopPower           = 7,
+        DoorDamage          = 5,
+        PiercingBullets     = TRUE,
+        RecoilDelay         = 100,
+        ReloadTime          = 100,
+        AimingTime          = 30,
+
+        MinRange            = 0.61,
+        MaxRange            = 12,
+        MinAngle            = 0.95,
+
+        CriticalChance                  = 33,
+        AimingPerkCritModifier          = 10,
+        HitChance                       = 40,
+        AimingPerkHitChanceModifier     = 10,
+        AimingPerkMinAngleModifier      = 0.05,
+        AimingPerkRangeModifier         = 1.5,
+        ConditionLowerChanceOneIn       = 60,
+
+        SwingAnim           = Handgun,
+        RunAnim             = Run_Weapon2,
+        IdleAnim            = Idle_Weapon2,
+        ConditionMax        = 10,
+        MetalValue          = 30,
+        AttachmentType      = Holster,
+    }
+
+
+    model Ray Gun
+	{
+		mesh = weapons/firearm/Ray Gun,
+		texture = weapons/firearm/Raygun_Material_BaseColor,
+
+		attachment muzzle
+		{
+			offset = 0.0000 0.243 -0.030,
+			rotate = -90.0000 0.0000 0.0000,
+		}
+
+		attachment world
+		{
+			offset = -0.0720 0.0340 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+}

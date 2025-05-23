@@ -1,0 +1,71 @@
+module Base
+{
+	sound RayGunReload
+	{
+		category = Item,
+		maxInstancesPerEmitter = 2,
+		clip
+		{
+			file = media/sound/RayGunReload.ogg,
+			distanceMax = 10,
+			volume = 0.5,
+		}
+	}
+	sound RayGunNoAmmo
+	{
+		category = Item,
+		maxInstancesPerEmitter = 2,
+		clip
+		{
+			file = media/sound/RayGunNoAmmo.ogg,
+			distanceMax = 10,
+			volume = 0.5,
+		}
+	}
+	sound RayGunReloadFinish
+	{
+		category = Item,
+		maxInstancesPerEmitter = 2,
+		clip
+		{
+			file = media/sound/RayGunReloadFinish.ogg,
+			distanceMax = 10,
+			volume = 0.5,
+		}
+	}
+
+
+	sound RayGunShoot
+	{
+		category = Item,
+		maxInstancesPerEmitter = 2,
+		clip
+		{
+			file = media/sound/RayGunShoot.ogg,
+			distanceMax = 90,
+			volume = 0.7,
+		}
+	}
+        sound RayGunImpact
+	{
+		category = Item,
+		maxInstancesPerEmitter = 2,
+		clip
+		{
+			file = media/sound/RayGunImpact.ogg,
+			distanceMax = 90,
+			volume = 0.7,
+		}
+	}
+        sound RayGunEquip
+	{
+		category = Item,
+		maxInstancesPerEmitter = 2,
+		clip
+		{
+			file = media/sound/RayGunEquip.ogg,
+			distanceMax = 90,
+			volume = 0.7,
+		}
+	}
+}

@@ -1,0 +1,20 @@
+Sandbox_EN = {
+
+	Sandbox_RayGunMod = "Ray Gun",
+
+	Sandbox_RayGunMod_ExplosionRadius = "Explosion Radius",
+
+	Sandbox_RayGunMod_DeathChance = "Death Chance",
+	Sandbox_RayGunMod_DeathChance_tooltip = "Chance to kill yourself by accident",
+	Sandbox_RayGunMod_KnockDownPercent = "Player Knockdown Chance",
+	Sandbox_RayGunMod_ZedKnockDownPercent = "Zed Knockdown Chance",
+
+	Sandbox_RayGunMod_ZedDmg = "Additional Zed Dmg",
+
+	Sandbox_RayGunMod_CircleChance = "Radius Indicator Chance",
+	Sandbox_RayGunMod_CircleChance_tooltip = "Chance to shows a visual marker on the ground that represents the area that got hit by the Ray Gun",
+	Sandbox_RayGunMod_EffectsRange = "Effects Range",
+	Sandbox_RayGunMod_EffectsRange_tooltip = "Not the same as the weapons max range which is 12",
+
+
+}
